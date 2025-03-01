@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú de Bebidas y Alimentos</title>
+  <!-- Bootstrap y FontAwesome -->
+  <link rel="stylesheet" href="style/bootstrap-5.3.0-dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style/fontawesome-free-6.4.0-web/css/all.css" />
+  <!-- Nuestro CSS personalizado -->
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="style/bootstrap-5.3.0-dist/js/bootstrap.bundle.js" defer></script>
+  <script src="style/fontawesome-free-6.4.0-web/js/all.js" defer></script>
+  <script src="modulos/moduloComanda/controladorComanda.js" defer></script>
+  <link href="stylea/Css.css" rel="stylesheet" type="text/css"/>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <header>
+    <h1>Menú</h1>
+  </header>
+
+  <main id="main-content" class="container my-4">
+    <!-- Sección de productos -->
+    <section id="productos" class="row">
+      <!-- Bebidas -->
+      <div id="bebidas" class="col-md-6">
+        <h2>Bebidas</h2>
+      </div>
+      <!-- Alimentos -->
+      <div id="alimentos" class="col-md-6">
+        <h2>Alimentos</h2>
+      </div>
+    </section>
+
+    <!-- Ticket -->
+    <aside id="ticket">
+      <h2>Pedido</h2>
+      <p>Selecciona tus productos.</p>
+      <div id="lista-pedido">
+        <!-- Se generará la lista de productos seleccionados -->
+        <div class="ticket-item">
+          <div class="cantidad-container">
+            <!-- Contenido dinámico -->
+          </div>
+        </div>
+      </div>
+      <button class="btn-confirmar" onclick="enviarPedido()">Confirmar Pedido</button>
+      <button class="btn-confirmar cancelar-btn" onclick="cancelarPedido()">Cancelar Pedido</button>
+    </aside>
+  </main>
+
+  <!-- Modal para datos de tarjeta -->
+  <div class="modal-overlay" id="cardModal">
+    <div class="modal-content">
+      <button class="btn-close" onclick="closeModal()">&times;</button>
+      <h2>Datos de la tarjeta</h2>
+      <form id="cardForm" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label for="titular">Titular:</label>
+          <input type="text" id="titular" name="titular" placeholder="Ej. Juan Pérez" required />
+        </div>
+        <div class="form-group">
+          <label for="numero">Número de tarjeta:</label>
+          <input type="text" id="numero" name="numero" maxlength="16" placeholder="Ej. 1234123412341234" required />
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="mm">MM:</label>
+            <input type="text" id="mm" name="mm" maxlength="2" placeholder="MM" required />
+          </div>
+          <div class="form-group">
+            <label for="yy">YY:</label>
+            <input type="text" id="yy" name="yy" maxlength="2" placeholder="YY" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV:</label>
+          <input type="text" id="cvv" name="cvv" maxlength="3" placeholder="Ej. 123" required />
+        </div>
+        <button type="submit" class="btn-confirmar">Confirmar Pago</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

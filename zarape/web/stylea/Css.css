@@ -1,0 +1,367 @@
+/* =======================
+   Estilos Generales
+========================== */
+body {
+  background-color: #FEF2E4;
+  color: #805A3B;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+h1,
+h2 {
+  color: #805A3B;
+}
+
+/* Contenedor principal */
+#main-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+/* =======================
+   Productos (Bebidas)
+========================== */
+#productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  width: 65%;
+  margin-right: 30px;
+}
+
+.bebida-card {
+  border: 1px solid #C60000;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bebida-card:hover {
+  transform: scale(1.05);
+}
+
+.bebida-card h3 {
+  margin: 10px 0;
+}
+
+.bebida-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* =======================
+   Ticket de Pedido
+========================== */
+#ticket {
+  background: white;
+  padding: 30px;
+  border: 2px solid #C60000;
+  border-radius: 12px;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+  width: 30%;
+  max-height: 85vh;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 18px;
+}
+
+.ticket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.ticket-item p {
+  margin: 0;
+  flex: 1;
+  text-align: left;
+}
+
+/* Botones de cantidad */
+.cantidad-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cantidad-container span {
+  font-size: 18px;
+  width: 30px;
+  text-align: center;
+}
+
+.cantidad-container button {
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.btn-menos {
+  background-color: #C60000;
+  color: white;
+}
+
+.btn-mas {
+  background-color: #FD974F;
+  color: white;
+}
+
+/* Botones de confirmación y cancelación en el ticket */
+.btn-confirmar {
+  background-color: #FD974F;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.btn-confirmar:hover {
+  background-color: #C60000;
+}
+
+/* =======================
+   Notificaciones
+========================== */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  z-index: 1000;
+  transition: opacity 0.5s;
+}
+
+.notification.success {
+  background-color: #28a745;
+}
+
+.notification.error {
+  background-color: #dc3545;
+}
+
+.notification.info {
+  background-color: #17a2b8;
+}
+
+.notification.fade-out {
+  opacity: 0;
+}
+
+/* =======================
+   Estado vacío
+========================== */
+.empty-state {
+  text-align: center;
+  padding: 20px;
+  color: #805A3B;
+}
+
+.empty-state i {
+  font-size: 3em;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+/* =======================
+   Confirmación de Pago
+========================== */
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.confirmation-content {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.confirmation-content i {
+  font-size: 4em;
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+.confirmation-content h2 {
+  color: #805A3B;
+  margin-bottom: 10px;
+}
+
+.confirmation-content button {
+  background: #FD974F;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.confirmation-content button:hover {
+  background: #C60000;
+}
+
+/* =======================
+   Modal de Tarjeta
+========================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #FEF2E4;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #C60000;
+}
+
+/* =======================
+   Formularios
+========================== */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #805A3B;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #C60000;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* =======================
+   Media Queries
+========================== */
+@media (max-width: 768px) {
+  #main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #productos {
+    width: 100%;
+  }
+
+  #ticket {
+    width: 90%;
+    margin-top: 20px;
+  }
+}
+
+.alimento-card {
+  border: 1px solid #C60000;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alimento-card:hover {
+  transform: scale(1.05);
+}
+
+.alimento-card h3 {
+  margin: 10px 0;
+}
+
+.alimento-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
